@@ -429,4 +429,16 @@ FodyWeavers.xsd
 *.msp
 
 # Appsettings
+/appsettings.json
+/appsettings.Development.json
+
+
+bin/
+obj/
+.git/
+.gitignore
+*.md
 appsettings.Development.json
+**/.vs/
+/docker-compose.yml
+/Dockerfile
