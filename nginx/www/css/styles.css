@@ -1,0 +1,168 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #f8f6f2; color: #222; min-height: 100vh; }
+
+#app-header {
+  background: #1a1a2e; color: #fff; padding: 20px 24px;
+  position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.header-inner {
+  max-width: 900px; margin: 0 auto; display: flex;
+  justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-icon { font-size: 28px; }
+.logo-title { font-size: 18px; font-weight: 700; letter-spacing: 0.5px; }
+.logo-sub { font-size: 12px; color: #aaa; margin-top: 2px; }
+.header-stats { display: flex; align-items: center; gap: 16px; }
+.stat { text-align: center; }
+.stat-val { font-size: 22px; font-weight: 700; }
+.stat-label { font-size: 11px; color: #aaa; margin-top: 2px; }
+.stat-arrow { font-size: 20px; color: #888; }
+
+#app-body { max-width: 900px; margin: 0 auto; padding: 24px 16px 60px; }
+
+#phase-banner {
+  background: #fff; border: 2px solid #ccc; border-radius: 12px;
+  padding: 18px 20px; margin-bottom: 24px; display: flex; gap: 20px;
+  flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.phase-left { display: flex; flex-direction: column; gap: 6px; min-width: 100px; }
+.phase-tag {
+  color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px;
+  border-radius: 20px; display: inline-block; letter-spacing: 1px;
+  text-transform: uppercase; width: fit-content;
+}
+.phase-name { font-size: 22px; font-weight: 700; }
+.phase-weeks { font-size: 13px; color: #888; }
+.phase-right { flex: 1; min-width: 200px; }
+.phase-goal { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.phase-desc { font-size: 13px; color: #555; margin-bottom: 12px; line-height: 1.5; }
+.progress-bar { height: 6px; background: #eee; border-radius: 4px; overflow: hidden; margin-bottom: 6px; }
+.progress-fill { height: 100%; border-radius: 4px; transition: width 0.3s ease; }
+.progress-label { font-size: 12px; color: #888; }
+
+.section { margin-bottom: 24px; }
+.section-label {
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: #888; margin-bottom: 12px;
+}
+
+#week-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+
+.week-btn-wrap { position: relative; display: inline-block; }
+.week-btn {
+  width: 34px; height: 34px; border: 2px solid transparent;
+  border-radius: 6px; font-size: 12px; cursor: pointer;
+  transition: all 0.15s ease; font-family: Georgia, serif; display: block;
+}
+.week-btn:hover { filter: brightness(0.9); }
+.week-check {
+  position: absolute; top: -5px; right: -5px;
+  width: 14px; height: 14px; background: #27ae60;
+  border-radius: 50%; color: #fff; font-size: 9px;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; font-weight: 900; line-height: 1;
+  border: 1.5px solid #fff;
+}
+
+#phase-key-row {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; margin-top: 8px;
+}
+#phase-key { display: flex; gap: 16px; flex-wrap: wrap; }
+.phase-key-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #555; }
+.phase-key-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+#mark-done-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 8px; font-size: 12px;
+  font-weight: 700; font-family: Georgia, serif; cursor: pointer;
+  transition: all 0.18s ease; white-space: nowrap; border: 2px solid #27ae60;
+}
+#mark-done-btn.not-done { background: transparent; color: #27ae60; }
+#mark-done-btn.not-done:hover { background: #27ae60; color: #fff; }
+#mark-done-btn.done { background: #27ae60; color: #fff; }
+#mark-done-btn.done:hover { background: #c0392b; border-color: #c0392b; }
+
+#day-tabs { display: flex; gap: 12px; flex-wrap: wrap; }
+.day-tab {
+  flex: 1; min-width: 160px; padding: 14px 16px; border: 2px solid #ddd;
+  border-radius: 10px; cursor: pointer; text-align: left;
+  transition: all 0.15s ease; background: transparent; font-family: Georgia, serif;
+}
+.day-tab:hover { filter: brightness(0.96); }
+.day-icon { font-size: 22px; display: block; margin-bottom: 6px; }
+.day-tab-label { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+.day-tab-focus { font-size: 12px; color: #666; }
+.day-done-badge {
+  display: inline-block; margin-left: 6px; background: #27ae60;
+  color: #fff; border-radius: 50%; width: 17px; height: 17px;
+  font-size: 10px; text-align: center; line-height: 17px;
+  font-weight: 900; vertical-align: middle;
+}
+
+#cardio-card {
+  background: #fff; border: 2px solid #ccc; border-radius: 12px;
+  padding: 16px 20px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.cardio-title { font-size: 14px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.cardio-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+.cardio-item { flex: 1; min-width: 120px; }
+.cardio-item-label { font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 0.8px; margin-bottom: 4px; }
+.cardio-item-val { font-size: 13px; font-weight: 600; }
+.cardio-notes { font-size: 13px; color: #555; font-style: italic; border-top: 1px solid #eee; padding-top: 10px; margin-top: 4px; }
+
+#ex-list { display: flex; flex-direction: column; gap: 8px; }
+.ex-card {
+  background: #fff; border-radius: 10px; border-left: 4px solid #ccc;
+  overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.ex-header {
+  width: 100%; display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; background: transparent; border: none;
+  cursor: pointer; text-align: left; flex-wrap: wrap; font-family: Georgia, serif;
+}
+.ex-header:hover { background: #fafafa; }
+.ex-num {
+  width: 28px; height: 28px; background: #f0f0f0; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.ex-info { flex: 1; min-width: 120px; }
+.ex-name { font-size: 14px; font-weight: 700; }
+.ex-target { font-size: 12px; color: #888; margin-top: 2px; }
+.ex-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { background: #f0f0f0; border-radius: 6px; padding: 3px 8px; font-size: 12px; font-weight: 600; }
+.badge-weight { color: #fff; }
+.ex-chevron { font-size: 12px; color: #aaa; flex-shrink: 0; }
+.ex-panel { background: #fafafa; border-top: 1px solid #eee; padding: 14px 16px; }
+.ex-panel.hidden { display: none; }
+.ex-notes-row { display: flex; gap: 8px; font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 14px; }
+.ex-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.ex-link-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700;
+  font-family: Georgia, serif; text-decoration: none; cursor: pointer;
+  border: none; transition: filter 0.15s ease; letter-spacing: 0.3px;
+}
+.ex-link-btn:hover { filter: brightness(0.88); }
+.btn-images { background: #4285f4; color: #fff; }
+.btn-youtube { background: #ff0000; color: #fff; }
+.btn-icon { font-size: 14px; }
+
+#tips-card { background: #1a1a2e; color: #ddd; border-radius: 12px; padding: 20px 24px; margin-top: 8px; }
+.tips-title { color: #fff; font-weight: 700; font-size: 15px; margin-bottom: 14px; }
+.tips-list { display: flex; flex-direction: column; gap: 10px; }
+.tip { font-size: 13px; line-height: 1.6; color: #bbb; }
+.tip b { color: #eee; }
+
+#loading-overlay {
+  position: fixed; inset: 0; background: #f8f6f2;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999; font-size: 16px; color: #888; font-family: Georgia, serif;
+}
+
+@media (max-width: 500px) {
+  .day-tab { min-width: 100%; }
+  .header-stats { display: none; }
+}
