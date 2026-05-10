@@ -26,15 +26,18 @@ using (var scope = app.Services.CreateScope())
     try
     {
         db.Database.Migrate();
+        await DataSeeder.SeedAsync(db);
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Migration failed: {ex.Message}");
+        Console.WriteLine($"Startup error: {ex.Message}");
         throw;
     }
 }
 
 app.MapUserEndpoints();
 app.MapProgressEndpoints();
+app.MapExerciseEndpoints();
+app.MapSessionEndpoints();
 
 app.Run();
